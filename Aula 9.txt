@@ -1,0 +1,114 @@
+﻿LIbgen.io >> Biblioteca digital
+
+Livro econometria de séries temporais (Rodrigo de Losso da Silveira Bueno)
+
+
+_____________________________________________________________________________________
+
+Lançar variavel: x<- item que deve ser
+
+Apagar tudo
+
+>rm(list=ls()) depois dar enter e clicar em CTRL+L
+
+(RM de remove)
+
+________________________________________________________
+
+Para salvar os itens na pasta correta, digitar: setwd("c:/econometria")
+Para confirmar se salvou, digitar o comando getwd()
+
+__________________________________________________________
+
+Quando quero digitar um comando que busque valor igual, precisa usar dois sinais de igual ==
+
+_____________________________________________________________
+
+Sempre baixar o pacote: install.packages("pwt8")
+depois de baixar, digitar o comando: library("pwt8")
+Setar arquivo: data('pwt8.0')
+ver dados: View(pwt8.0) (o v precisa ser maísculo)
+_________________________________________________________________
+
+
+Extraindo dados da tabela: comando subset( )
+Estrutura: 
+subset( x , linhas, colunas  )
+(subset significa subgrupo)
+
+br<- subset(pwt8.0, country== "Brazil", select = c(rgdpna,avh,xr))
+
+Após fazer isso, dar o comando: >View(br) 
+para ver a variável. Isso fará com que mostre apenas as colunas selecionadas no programa
+
+Mudar o nome: colnames(br) <- c("PIB", "Trabalho", "Cambio")
+
+__________________________________________________
+
+
+Cifrão ($) te traz a sua variável.
+Para criar gráfico, usar comando: plot(Variavel$Variavel da variavel)
+
+__________________________________________________
+
+mudar eixo x para datas usar comando: ts ( data set , data de inicio, periodicidade dos dados  )
+
+
+dados <- ts (br, start=1950, freq=1)
+e fazer o plot da nova variável criada
+plot(dados)
+
+
+Para mudar de cor e dar título: plot(dados, col="purple", main="Dados Brasileiros", xlab="Ano")
+
+
+________________________________________________________________________________________
+
+Para salvar arquivo: write.csv(br, file="br.csv")
+
+___________________
+
+para salvewr no github
+file>New file> R script
+
+__________________________________
+
+
+
+Aula 3 - 23 de agosto de 2018
+
+Processos Estocásticos / Séries Temporais
+
+
+Se a planilha vier cagada, ao exportar mudar para "semicolon"
+
+O Grafico hist(PIB) não é distribuição normal, pois nao começa baixo, tem pico e cai de novo.
+
+__________________________________
+
+
+
+Aula 4 - 24 de agosto de 2018
+
+
+???? --> Beta
+
+Teste de Dick Fuller < (menor) que a Estatística: não possui raiz unitária e a série é estacionária
+Teste de Dick Fuller > (maior) que Estatística: possui raiz unitária e a série não é estacionária
+
+_______________________________________________
+
+Aula 12
+Quando o gráfico tem tendência nao é estacionario e quando fica subindo e descendo (Constantemente) é estacionario.
+HO: não é estacionário
+
+O primeiro gráfico do pdf da aula 12 não é estacionário e o segundo é.
+
+AR -> p
+MA -> q
+Integração -> d
+
+
+
+
+
